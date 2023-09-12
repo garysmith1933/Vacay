@@ -7,9 +7,10 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
-@Table
+@Table(name="customers")
 @Getter
 @Setter
 public class Customer {
@@ -33,6 +34,9 @@ public class Customer {
     @UpdateTimestamp
     @Column(name = "last_update")
     private Date lastUpdate;
-//    private Division division;
-    //private Set<Cart> Carts;
+    @OneToOne
+    @JoinColumn(name = "divisions_id")
+    private Division division;
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private Set<Cart> Carts;
 }

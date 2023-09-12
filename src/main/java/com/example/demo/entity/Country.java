@@ -1,15 +1,15 @@
-package src.main.java.com.example.demo.entity;
+package com.example.demo.entity;
+
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import java.util.Date;
+import java.util.Set;
 
 @Entity
-@Table(name="Countries")
+@Table(name="countries")
 @Getter
 @Setter
 public class Country {
@@ -25,5 +25,6 @@ public class Country {
     @Column(name="last_update")
     @UpdateTimestamp
     private Date lastUpdate;
-    //private Set<Division> divisions;
+    @OneToMany(cascade=CascadeType.ALL,mappedBy="country")
+    private Set<Division> divisions;
 }

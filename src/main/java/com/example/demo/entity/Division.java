@@ -5,11 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import java.util.Date;
 
 @Entity
-@Table
+@Table(name="divisions")
 @Getter
 @Setter
 public class Division {
@@ -25,4 +24,7 @@ public class Division {
     @UpdateTimestamp
     @Column(name="last_update")
     private Date lastUpdate;
+    @ManyToOne
+    @JoinColumn(name="countries_id")
+    private Country country;
 }
