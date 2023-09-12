@@ -1,6 +1,8 @@
 package src.main.java.com.example.demo.entity;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -8,7 +10,8 @@ import java.util.Date;
 
 @Entity
 @Table(name="Countries")
-@Data
+@Getter
+@Setter
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

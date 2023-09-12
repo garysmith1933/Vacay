@@ -1,13 +1,16 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
-
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
 @Table
+@Getter
+@Setter
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,13 +23,13 @@ public class Cart {
     private BigDecimal packagePrice;
     @Column(name="part_size")
     private int partySize;
-//    @Column(name="status")
-    //private SOMETHING ABOUT ENUM status
+    @Column(name="status")
+    private ENUM status;
     @Column(name="create_update")
     @CreationTimestamp
     private Date createDate;
     @Column(name="last_update")
     private Date lastUpdate;
-//    private Customer customer;
-//    private Set<CartItem> cartItem;
+    private Customer customer;
+    private Set<CartItem> cartItem;
 }
