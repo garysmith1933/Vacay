@@ -25,12 +25,12 @@ public class Cart {
     private BigDecimal package_price;
     @Column(name="party_size")
     private int party_size;
-    private enum StatusType {
+    public enum StatusType {
         pending, ordered, canceled
     }
     @Enumerated(EnumType.STRING)
     @Column(name="status")
-    private StatusType status;
+    public StatusType status;
     @Column(name="create_date")
     @CreationTimestamp
     private Date create_date;
