@@ -15,9 +15,9 @@ import java.util.Set;
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name="country_id")
     private Long id;
-    @Column(name="country_name")
+    @Column(name="country")
     private String countryName;
     @Column(name="create_date")
     @CreationTimestamp

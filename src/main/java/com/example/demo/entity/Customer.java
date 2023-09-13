@@ -16,11 +16,11 @@ import java.util.Set;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "customer_id")
     private Long id;
-    @Column(name = "firstName")
+    @Column(name = "customer_first_name")
     private String firstName;
-    @Column(name = "lastName")
+    @Column(name = "customer_last_name")
     private String lastName;
     @Column(name = "address")
     private String address;
@@ -35,7 +35,7 @@ public class Customer {
     @Column(name = "last_update")
     private Date lastUpdate;
     @OneToOne
-    @JoinColumn(name = "divisions_id")
+    @JoinColumn(name = "division_id")
     private Division division;
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private Set<Cart> Carts;

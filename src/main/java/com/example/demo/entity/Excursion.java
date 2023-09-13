@@ -17,13 +17,13 @@ import java.util.Set;
 public class Excursion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name="excursion_id")
     private Long id;
     @Column(name="excursion_title")
     private String excursionTitle;
     @Column(name="excursion_price")
     private BigDecimal excursionPrice;
-    @Column(name="image_URL")
+    @Column(name="image_url")
     private String imageUrl;
     @Column(name="create_date")
     @CreationTimestamp
@@ -32,7 +32,7 @@ public class Excursion {
     @Column(name="last_update")
     private Date lastUpdate;
     @ManyToOne
-    @JoinTable(name = "vacations_id")
+    @JoinTable(name = "vacation_id")
     private Vacation vacation;
     @ManyToMany(mappedBy = "excursions")
     private Set<CartItem> cartItems;

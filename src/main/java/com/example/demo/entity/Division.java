@@ -14,9 +14,9 @@ import java.util.Date;
 public class Division {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name="division_id")
     private Long id;
-    @Column(name="division_name")
+    @Column(name="division")
     private String divisionName;
     @Column(name="create_date")
     @CreationTimestamp
@@ -25,6 +25,6 @@ public class Division {
     @Column(name="last_update")
     private Date lastUpdate;
     @ManyToOne
-    @JoinColumn(name="countries_id")
+    @JoinColumn(name="country_id")
     private Country country;
 }

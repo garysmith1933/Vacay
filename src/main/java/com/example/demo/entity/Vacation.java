@@ -17,13 +17,15 @@ import java.util.Set;
 public class Vacation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name="vacation_id")
     private Long id;
     @Column(name="vacation_title")
     private String vacationTitle;
-    @Column(name="travel_price")
+    @Column(name="description")
+    private String description;
+    @Column(name="travel_fare_price")
     private BigDecimal travelPrice;
-    @Column(name="image_URL")
+    @Column(name="image_url")
     private String imageURL;
     @Column(name="create_date")
     @CreationTimestamp

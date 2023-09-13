@@ -3,25 +3,27 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table
+@Table(name="carts")
 @Getter
 @Setter
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //if error compare fields to database script;
-    @Column(name="id")
+    @Column(name="cart_id")
     private Long id;
-    @Column(name = "orderTrackingNumber")
+    @Column(name = "order_tracking_number")
     private String orderTrackingNumber;
     @Column(name="package_price")
     private BigDecimal packagePrice;
-    @Column(name="part_size")
+    @Column(name="party_size")
     private int partySize;
     private enum StatusType {
         pending, ordered, canceled
@@ -29,9 +31,10 @@ public class Cart {
     @Enumerated(EnumType.STRING)
     @Column(name="status")
     private StatusType status;
-    @Column(name="create_update")
+    @Column(name="create_date")
     @CreationTimestamp
     private Date createDate;
+    @UpdateTimestamp
     @Column(name="last_update")
     private Date lastUpdate;
     @ManyToOne
