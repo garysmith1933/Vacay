@@ -14,7 +14,7 @@ import java.util.Set;
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //if error compare fields to script;
+    //if error compare fields to database script;
     @Column(name="id")
     private Long id;
     @Column(name = "orderTrackingNumber")
@@ -23,8 +23,12 @@ public class Cart {
     private BigDecimal packagePrice;
     @Column(name="part_size")
     private int partySize;
-//    @Column(name="status")
-//    private ENUM status;
+    private enum StatusType {
+        pending, ordered, canceled
+    }
+    @Enumerated(EnumType.STRING)
+    @Column(name="status")
+    private StatusType status;
     @Column(name="create_update")
     @CreationTimestamp
     private Date createDate;
@@ -36,3 +40,4 @@ public class Cart {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
     private Set<CartItem> cartItem;
 }
+
