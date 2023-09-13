@@ -25,7 +25,7 @@ public class Customer {
     @Column(name = "address")
     private String address;
     @Column(name = "postal_code")
-    private String postalCode;
+    private String postal_code;
     @Column(name = "phone")
     private String phone;
     @CreationTimestamp

@@ -22,9 +22,9 @@ public class Cart {
     @Column(name = "order_tracking_number")
     private String orderTrackingNumber;
     @Column(name="package_price")
-    private BigDecimal packagePrice;
+    private BigDecimal package_price;
     @Column(name="party_size")
-    private int partySize;
+    private int party_size;
     private enum StatusType {
         pending, ordered, canceled
     }
@@ -33,10 +33,10 @@ public class Cart {
     private StatusType status;
     @Column(name="create_date")
     @CreationTimestamp
-    private Date createDate;
+    private Date create_date;
     @UpdateTimestamp
     @Column(name="last_update")
-    private Date lastUpdate;
+    private Date last_update;
     @ManyToOne
     @JoinColumn(name="customer_id")
     private Customer customer;

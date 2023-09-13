@@ -20,19 +20,19 @@ public class Excursion {
     @Column(name="excursion_id")
     private Long id;
     @Column(name="excursion_title")
-    private String excursionTitle;
+    private String excursion_title;
     @Column(name="excursion_price")
-    private BigDecimal excursionPrice;
+    private BigDecimal excursion_price;
     @Column(name="image_url")
-    private String imageUrl;
+    private String image_URL;
     @Column(name="create_date")
     @CreationTimestamp
-    private Date createDate;
+    private Date create_date;
     @UpdateTimestamp
     @Column(name="last_update")
-    private Date lastUpdate;
+    private Date last_update;
     @ManyToOne
-    @JoinTable(name = "vacation_id")
+    @JoinColumn(name = "vacation_id")
     private Vacation vacation;
     @ManyToMany(mappedBy = "excursions")
     private Set<CartItem> cartItems;
