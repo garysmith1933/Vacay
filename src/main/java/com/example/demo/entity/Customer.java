@@ -51,7 +51,7 @@ public class Customer {
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private Set<Cart> Carts = new HashSet<>();
 
-    public Customer(String firstName, String lastName, String address, String postal_code, String phone, Division division){
+    public Customer(String firstName, String lastName, String address, String postal_code, String phone, Division division) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -62,3 +62,4 @@ public class Customer {
 
     public Customer() {
     }
+}
