@@ -5,6 +5,7 @@ import com.example.demo.dao.DivisionRepository;
 import com.example.demo.entity.Country;
 import com.example.demo.entity.Customer;
 import com.example.demo.entity.Division;
+import jakarta.transaction.Transactional;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -21,6 +22,7 @@ public class BootStrapData implements CommandLineRunner {
     }
 
     @Override
+    @Transactional
     public void run(String... args) throws Exception {
         Division nJ = divisionRepository.findById(29L).orElse(null);
 
