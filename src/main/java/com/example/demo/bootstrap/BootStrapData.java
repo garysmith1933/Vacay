@@ -2,6 +2,7 @@ package com.example.demo.bootstrap;
 
 import com.example.demo.dao.CustomerRepository;
 import com.example.demo.dao.DivisionRepository;
+import com.example.demo.dao.CountryRepository;
 import com.example.demo.entity.Country;
 import com.example.demo.entity.Customer;
 import com.example.demo.entity.Division;
@@ -15,10 +16,12 @@ import java.util.*;
 public class BootStrapData implements CommandLineRunner {
     private final CustomerRepository customerRepository;
     private final DivisionRepository divisionRepository;
+    private final CountryRepository countryRepository;
 
-    public BootStrapData(CustomerRepository customerRepository, DivisionRepository divisionRepository) {
+    public BootStrapData(CustomerRepository customerRepository, DivisionRepository divisionRepository, CountryRepository countryRepository) {
         this.customerRepository = customerRepository;
         this.divisionRepository = divisionRepository;
+        this.countryRepository = countryRepository;
     }
 
     @Override
@@ -27,9 +30,13 @@ public class BootStrapData implements CommandLineRunner {
         Division nJ = divisionRepository.findById(29L).orElse(null);
 
         if (nJ == null) {
-           nJ = new Division();
-            Country country = new Country();
-            country.setId(1L);
+          nJ = new Division();
+          Country country = countryRepository.findById(1L).orElse(null);
+          if (country == null) {
+              country = new Country();
+              country.setId(1L);
+              countryRepository.save(country);
+          }
             nJ.setCountry(country);
         }
 

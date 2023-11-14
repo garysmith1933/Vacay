@@ -44,7 +44,7 @@ public class Customer {
     @Column(name = "last_update")
     private Date lastUpdate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "division_id")
     private Division division;
 
