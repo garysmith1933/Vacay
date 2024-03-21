@@ -17,11 +17,13 @@ public class BootStrapData implements CommandLineRunner {
     private final CustomerRepository customerRepository;
     private final DivisionRepository divisionRepository;
     private final CountryRepository countryRepository;
+    private final VacationRepository vacationRepository;
 
     public BootStrapData(CustomerRepository customerRepository, DivisionRepository divisionRepository, CountryRepository countryRepository) {
         this.customerRepository = customerRepository;
         this.divisionRepository = divisionRepository;
         this.countryRepository = countryRepository;
+        this.vacationRepository = vacationRepository;
     }
 
     @Override
@@ -63,6 +65,10 @@ public class BootStrapData implements CommandLineRunner {
         }
 
         divisionRepository.save(nJ);
+
+        // Vacations - Starting with just mexico.
+        //
+        mexico = new Vacation('Mexico', 'Something something this place is nice bruh', 3000.00)
 
         List<Customer> customers = customerRepository.findAll();
         for (Customer customer : customers) {
