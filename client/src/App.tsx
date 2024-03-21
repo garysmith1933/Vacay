@@ -2,6 +2,7 @@ import './App.css'
 import Mexico from './assets/vacation-images/mexico.jpg'
 import { Link } from "react-router-dom";
 
+// bootstrap data in backend to serve to frontend
 // map vacations stored in database to be loaded when the app starts.
 
 

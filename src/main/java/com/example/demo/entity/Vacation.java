@@ -36,3 +36,14 @@ public class Vacation {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacation")
     private Set<Excursion> excursions;
 }
+
+public Vacation(title, description, price) {
+  this.vacation_title
+  this.description
+  this.travel_fare_price
+  // this.image_URL - will come back later
+}
+
+public Vacation() {
+  
+}
