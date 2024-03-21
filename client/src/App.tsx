@@ -1,8 +1,11 @@
 import './App.css'
 import Mexico from './assets/vacation-images/mexico.jpg'
+import { Link } from "react-router-dom";
+
+// map vacations stored in database to be loaded when the app starts.
 
 
-const App: React.FC = () => { // List of all vacation locations -> excursion for single vacation
+const App: React.FC = () => { // List of all vacation locations -> excursion for single vacation, mexico needs to link to own page
   return (
     <>
       <div>
@@ -10,8 +13,10 @@ const App: React.FC = () => { // List of all vacation locations -> excursion for
       </div>
 
       <div id='mexico'>
-        <img id='mexico-image' src={Mexico}/>
-        <h2>Mexico</h2>
+        <Link to ="/vacation">
+          <img id='mexico-image' src={Mexico}/>
+          <h2>Mexico</h2>
+        </Link>
       </div>
       
     </>
