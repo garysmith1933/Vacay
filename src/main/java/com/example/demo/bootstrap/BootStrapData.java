@@ -67,8 +67,9 @@ public class BootStrapData implements CommandLineRunner {
         divisionRepository.save(nJ);
 
         // Vacations - Starting with just mexico.
-        //
-        mexico = new Vacation('Mexico', 'Something something this place is nice bruh', 3000.00)
+
+        // YOU LEFT OFF HERE. need to handle case where this data already exists in the database. THE SERVER IS NOT CURRENTLY RUNNING.
+        Vacation mexico = new Vacation("Mexico", "Something something this place is nice bruh", 3000.00);
 
         List<Customer> customers = customerRepository.findAll();
         for (Customer customer : customers) {
