@@ -24,7 +24,7 @@ public class Vacation {
     @Column(name="description")
     private String description;
     @Column(name="travel_fare_price")
-    private BigDecimal travel_price;
+    private Double travel_price;
     @Column(name="image_url")
     private String image_URL;
     @Column(name="create_date")
@@ -37,9 +37,9 @@ public class Vacation {
     private Set<Excursion> excursions;
 
 
-  public Vacation(String title, String description, BigDecimal price) {
+  public Vacation(String title, String description, Double price) {
     this.vacation_title = title;
     this.description = description;
-    this.travel_fare_price = price;
+    this.travel_price = price;
   }
 }
