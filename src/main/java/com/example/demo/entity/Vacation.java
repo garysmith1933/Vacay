@@ -35,15 +35,11 @@ public class Vacation {
     private Date last_update;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacation")
     private Set<Excursion> excursions;
-}
 
-public Vacation(title, description, price) {
-  this.vacation_title
-  this.description
-  this.travel_fare_price
-  // this.image_URL - will come back later
-}
 
-public Vacation() {
-  
+  public Vacation(String title, String description, BigDecimal price) {
+    this.vacation_title = title;
+    this.description = description;
+    this.travel_fare_price = price;
+  }
 }
