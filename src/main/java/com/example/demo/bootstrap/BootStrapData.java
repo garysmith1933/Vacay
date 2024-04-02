@@ -3,9 +3,11 @@ package com.example.demo.bootstrap;
 import com.example.demo.dao.CustomerRepository;
 import com.example.demo.dao.DivisionRepository;
 import com.example.demo.dao.CountryRepository;
+import com.example.demo.dao.VacationRepository;
 import com.example.demo.entity.Country;
 import com.example.demo.entity.Customer;
 import com.example.demo.entity.Division;
+import com.example.demo.entity.Vacation;
 import jakarta.transaction.Transactional;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -19,7 +21,7 @@ public class BootStrapData implements CommandLineRunner {
     private final CountryRepository countryRepository;
     private final VacationRepository vacationRepository;
 
-    public BootStrapData(CustomerRepository customerRepository, DivisionRepository divisionRepository, CountryRepository countryRepository) {
+    public BootStrapData(CustomerRepository customerRepository, DivisionRepository divisionRepository, CountryRepository countryRepository, VacationRepository vacationRepository) {
         this.customerRepository = customerRepository;
         this.divisionRepository = divisionRepository;
         this.countryRepository = countryRepository;
@@ -67,9 +69,8 @@ public class BootStrapData implements CommandLineRunner {
         divisionRepository.save(nJ);
 
         // Vacations - Starting with just mexico.
-
-        // YOU LEFT OFF HERE. need to handle case where this data already exists in the database. THE SERVER IS NOT CURRENTLY RUNNING.
         Vacation mexico = new Vacation("Mexico", "Something something this place is nice bruh", 3000.00);
+        vacationRepository.save(mexico);
 
         List<Customer> customers = customerRepository.findAll();
         for (Customer customer : customers) {
