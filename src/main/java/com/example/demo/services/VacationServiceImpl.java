@@ -1,5 +1,5 @@
 
-public class VacationServiceImpl implements VacatiionService {
+public class VacationServiceImpl implements VacationService {
 
   @Autowired
   private VacationRepository vacationRepository;
