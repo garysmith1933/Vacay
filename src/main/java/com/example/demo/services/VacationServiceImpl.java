@@ -1,5 +1,15 @@
+package com.example.demo.services;
 
-public class VacationServiceImpl implements VacatiionService {
+import com.example.demo.dao.VacationRepository;
+import com.example.demo.entity.Vacation;
+import com.example.demo.services.VacationService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class VacationServiceImpl implements VacationService {
 
   @Autowired
   private VacationRepository vacationRepository;
