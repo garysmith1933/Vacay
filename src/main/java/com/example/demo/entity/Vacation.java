@@ -42,4 +42,6 @@ public class Vacation {
     this.description = description;
     this.travel_price = price;
   }
+
+  public Vacation() {}
 }

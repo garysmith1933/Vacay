@@ -67,10 +67,15 @@ public class BootStrapData implements CommandLineRunner {
         }
 
         divisionRepository.save(nJ);
-
         // Vacations - Starting with just mexico.
         Vacation mexico = new Vacation("Mexico", "Something something this place is nice bruh", 3000.00);
-        vacationRepository.save(mexico);
+
+        Optional<Vacation> existingVacation = vacationRepository.findByVacationTitle(mexico.getVacation_title());
+
+        if (existingVacation.isEmpty()) {
+            vacationRepository.save(mexico);
+        }
+
 
         List<Customer> customers = customerRepository.findAll();
         for (Customer customer : customers) {
