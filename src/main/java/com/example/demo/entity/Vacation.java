@@ -6,8 +6,7 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.math.BigDecimal;
-import java.util.Date;
+import java.sql.Timestamp;
 import java.util.Set;
 
 @Entity
@@ -20,28 +19,27 @@ public class Vacation {
     @Column(name="vacation_id")
     private Long id;
     @Column(name="vacation_title")
-    private String vacation_title;
+    private String vacationTitle;
     @Column(name="description")
     private String description;
     @Column(name="travel_fare_price")
-    private Double travel_price;
+    private Double travelPrice;
     @Column(name="image_url")
-    private String image_URL;
+    private String imageURL;
     @Column(name="create_date")
     @CreationTimestamp
-    private Date create_date;
+    private Timestamp create_date;
     @Column(name="last_update")
     @UpdateTimestamp
-    private Date last_update;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacation")
-    private Set<Excursion> excursions;
+    private Timestamp last_update;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacation") - will bring back once excursions are worked on
+//    private Set<Excursion> excursions;
 
-
-  public Vacation(String title, String description, Double price) {
-    this.vacation_title = title;
+    public Vacation(String title, String description, Double price) {
+    this.vacationTitle = title;
     this.description = description;
-    this.travel_price = price;
+    this.travelPrice = price;
   }
 
-  public Vacation() {}
+    public Vacation() {}
 }

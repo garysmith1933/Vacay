@@ -70,7 +70,7 @@ public class BootStrapData implements CommandLineRunner {
         // Vacations - Starting with just mexico.
         Vacation mexico = new Vacation("Mexico", "Something something this place is nice bruh", 3000.00);
 
-        Optional<Vacation> existingVacation = vacationRepository.findByVacationTitle(mexico.getVacation_title());
+        Optional<Vacation> existingVacation = vacationRepository.findByVacationTitle(mexico.getVacationTitle());
 
         if (existingVacation.isEmpty()) {
             vacationRepository.save(mexico);
